@@ -1,39 +1,15 @@
 <script setup>
-    const springs= [
-        {name: "Spring 01", image: "https://source.unsplash.com/random/?spring,pink,nature=1"},
-        {name: "Spring 02", image: "https://source.unsplash.com/random/?spring,pink,nature=2"},
-        {name: "Spring 03", image: "https://source.unsplash.com/random/?spring,pink,nature=3"},
-    ]
+    import works from '../assets/works.js';
+    import List from './List.vue';
 
-    const autumns= [
-        {name: "Autumn 01", image: "https://source.unsplash.com/random/?autumn,orange,nature=1"},
-        {name: "Autumn 02", image: "https://source.unsplash.com/random/?autumn,orange,nature=2"},
-        {name: "Autumn 03", image: "https://source.unsplash.com/random/?autumn,orange,nature=3"},
-    ]
+    const tags =  [...new Set(works.map(w => w.tags).flat())] //.sort()
+    console.log(tags);
 </script>
 
 <template>
     <h1>Seasons</h1>
-    
-    <div class="container">
-        <h2>Spring</h2>
-        <div class="row">
-            <div class="col-12 col-md-4" v-for="spring in springs">
-                <div class="title mt-3 mt-md-1">{{ spring.name }}</div>
-                <img :src="spring.image" alt="" class="img-fluid">
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="container">
-        <h2>Autumn</h2>
-        <div class="row">
-            <div class="col-12 col-md-4" v-for="autumn in autumns">
-                <div class="title mt-3 mt-md-1">{{ autumn.name }}</div>
-                <img :src="autumn.image" alt="" class="img-fluid">
-            </div>
-        </div>
+    <div class="tag" v-for="tag in tags">
+        <List :title="tag" :items="works.filter(w => w.tags.includes(tag))" />
     </div>
 </template>
 
