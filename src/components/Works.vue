@@ -1,12 +1,14 @@
 <script setup>
     import works from '../assets/works.js';
     import List from './List.vue';
+    import Articles from './Articles.vue';
 
     const tags =  [...new Set(works.map(w => w.tags).flat())] //.sort()
     console.log(tags);
 </script>
 
 <template>
+    <Articles />
     <h1>Seasons</h1>
     <div class="tag" v-for="tag in tags">
         <List :title="tag" :items="works.filter(w => w.tags.includes(tag))" />
