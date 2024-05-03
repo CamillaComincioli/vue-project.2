@@ -1,20 +1,7 @@
 const works = [
-    {name: "Spring 01", tags: ["spring"], image: "https://source.unsplash.com/random/?spring,pink,nature=1"},
-    {name: "Spring 02", tags: ["spring"], image: "https://source.unsplash.com/random/?spring,pink,nature=2"},
-    {name: "Spring 03", tags: ["spring"], image: "https://source.unsplash.com/random/?spring,pink,nature=3"},
-    {name: "Autumn 01", tags: ["autumn"], image: "https://source.unsplash.com/random/?autumn,orange,nature=1"},
-    {name: "Autumn 02", tags: ["autumn"], image: "https://source.unsplash.com/random/?autumn,orange,nature=2"},
-    {name: "Autumn 03", tags: ["autumn"], image: "https://source.unsplash.com/random/?autumn,orange,nature=3"},
-    {name: "Winter 01", tags: ["winter"], image: "https://source.unsplash.com/random/?winter,blue,nature=1"},
-    {name: "Winter 02", tags: ["winter"], image: "https://source.unsplash.com/random/?winter,blue,nature=2"},
-    {name: "Winter 03", tags: ["winter"], image: "https://source.unsplash.com/random/?winter,blue,nature=3"},
-    {name: "Summer 01", tags: ["summer"], image: "https://source.unsplash.com/random/?summer,green,nature=1"},
-    {name: "Summer 02", tags: ["summer"], image: "https://source.unsplash.com/random/?summer,green,nature=2"},
-    {name: "Summer 03", tags: ["summer"], image: "https://source.unsplash.com/random/?summer,green,nature=3"},
-    {name: "Nature 01", tags: ["nature"], image: "https://source.unsplash.com/random/?nature,green=1"},
-    {name: "Nature 02", tags: ["nature"], image: "https://source.unsplash.com/random/?nature,green=2"},
-    {name: "Nature 03", tags: ["nature"], image: "https://source.unsplash.com/random/?nature,green=3"},
-    {name: "Nature 04", tags: ["nature"], image: "https://source.unsplash.com/random/?nature,green=4"},
+    {name: "Apericena", tags: ["Le nostre specialità:"], text:"Comprende fritti vari, salumi, formaggi e un primo piatto! È disponibile tutti i giorni dalle 17 alle 22, anche senza prenotazione. Il costo è di soli €14 A PERSONA, bevande escluse (MINIMO DUE PERSONE).", image: "https://static.wixstatic.com/media/384146_af609f6b93f0495bb4fcab2f8b4f58ce~mv2.jpg/v1/fill/w_694,h_600,al_r,q_85,usm_0.66_1.00_0.01,enc_auto/384146_af609f6b93f0495bb4fcab2f8b4f58ce~mv2.jpg"},
+    {name: "Per tutti i gusti", tags: ["Le nostre specialità:"], text:"Il fritto misto è la nostra specialità, ma sappiamo soddisfare qualsiasi esigenza. Da noi potrai trovare: taglieri di salumi e formaggi, primi e secondi, hamburgers, pinse.. E perché non un buon dolce?", image: "https://static.wixstatic.com/media/384146_f046381000894d8f80bdee6aebfc0bef~mv2.jpg/v1/fill/w_694,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/384146_f046381000894d8f80bdee6aebfc0bef~mv2.jpg"},
+    {name: "Etichette di tutti i tipi", tags: ["Le nostre specialità:"], text:"Non da meno è la nostra selezione di vini. Bianco, rosso o rosè? Bollicina o vino fermo? Troverai diverse cantine, alcune locali, altre più famose come Cà del Bosco o Moët.", image: "https://static.wixstatic.com/media/384146_68c68f1bb5e3437b98e0177e3cf2c124~mv2.jpg/v1/fill/w_694,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/384146_68c68f1bb5e3437b98e0177e3cf2c124~mv2.jpg"},
 
 ]
 
