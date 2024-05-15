@@ -11,4 +11,4 @@ const gallery = [
     {image: "https://bit.ly/3UqdWob"}, 
 ]
 
-export default gallery;
+export default gallery;  

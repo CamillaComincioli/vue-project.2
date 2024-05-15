@@ -9,15 +9,14 @@
 </script>
 
 <template>
-    <div class="foreground container">
-      <div class="d-flex align-items-center flex-column">
+    <div class="foreground container-fluid">
+      <!-- <div class="d-flex align-items-center flex-column"> -->
         <img src="https://static.wixstatic.com/media/384146_8c28e95928844b89b9d3a55029502eff~mv2.png/v1/fill/w_134,h_162,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/384146_8c28e95928844b89b9d3a55029502eff~mv2.png" alt="" class="logo">
         <img src="https://img.icons8.com/?size=512&id=HVEtrBP5HF6L&format=png" alt="" class="arrow">
-      </div>
+      <!-- </div> -->
     </div>
 
     <div class="background">
-      <img src="https://static.wixstatic.com/media/384146_e999f1a8b1f14418bfc789dfcfdee485~mv2.jpg/v1/fill/w_2022,h_1082,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/IMG_8683_edited.jpg" alt="" class="img-fluid">
     </div>
 
     <div class="container">
@@ -51,19 +50,28 @@
 }
 
 .foreground{
-  position: absolute;
-  z-index: 99;
+  position: relative;
+  height: 100vh;
+  background-image: url(https://static.wixstatic.com/media/384146_e999f1a8b1f14418bfc789dfcfdee485~mv2.jpg/v1/fill/w_2022,h_1082,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/IMG_8683_edited.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 .logo{
   height: 150px;
   width: auto;
+  position: absolute;
+  top: 0;
+  margin-top: 3rem;
 }
 
 .arrow{
   filter: invert(91%) sepia(39%) saturate(0%) hue-rotate(25deg) brightness(109%) contrast(102%);
   height: 70px;
   width: auto;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 3rem;
 }
 
 

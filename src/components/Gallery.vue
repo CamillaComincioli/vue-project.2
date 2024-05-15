@@ -7,7 +7,7 @@ export default {
       gallery: gallery
     };
   }
-}
+}  
 </script>
 
 <template>
