@@ -1,23 +1,27 @@
 <script setup>
     import works from '../assets/works.js';
     import List from './List.vue';
-    import Gallery from './Gallery.vue';
-    import Articles from './Articles.vue';
+    import Gallery from './Gallery.vue'; 
+    import menu from '../assets/menu.js';
+    import Menu from './Menu.vue';
+    import Button from './Button.vue';
+    import Footer from './Footer.vue';
 
-    const tags =  [...new Set(works.map(w => w.tags).flat())] //.sort()
-    console.log(tags);
+    const workTags =  [...new Set(works.map(w => w.tags).flat())]
+    console.log(workTags);
+
+    const menuTags =  [...new Set(menu.map(w => w.tags).flat())]
+    console.log(menuTags);
+
 </script>
 
 <template>
     <div class="foreground container-fluid">
-      <!-- <div class="d-flex align-items-center flex-column"> -->
         <img src="https://static.wixstatic.com/media/384146_8c28e95928844b89b9d3a55029502eff~mv2.png/v1/fill/w_134,h_162,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/384146_8c28e95928844b89b9d3a55029502eff~mv2.png" alt="" class="logo">
         <img src="https://img.icons8.com/?size=512&id=HVEtrBP5HF6L&format=png" alt="" class="arrow">
-      <!-- </div> -->
     </div>
 
-    <div class="background">
-    </div>
+    <div class="background"></div>
 
     <div class="container">
       <div class="row">
@@ -25,20 +29,33 @@
             <h2 class="">SOTTOSOPRA RAFFA: il locale che non c'era</h2>
             <p class="">
               Dalla passione per il buon bere e il buon cibo nasce Sottosopra! 
-              Un locale che combina una cucina semplice, ma gustosa, a dei cocktail deliziosi che ben si sposano con la location ed il contesto.
+              <br>Un locale che combina una cucina semplice, ma gustosa, a dei cocktail deliziosi che ben si sposano con la location ed il contesto.
               Non solo cocktail da bere, anche delle ottime birre alla spina e in bottiglia.
-              E a fine pasto? Un buon Whisky non lo beviamo? Salute!</p>          
+              <br>E a fine pasto? Un buon Whisky non lo beviamo? Salute!</p>          
           </div>
       </div>
     </div>
 
 
-    <div class="tag mt-4" v-for="tag in tags">
+    <div class="tag mt-4" v-for="tag in workTags">
         <List :title="tag" :items="works.filter(w => w.tags.includes(tag))" />
     </div>
 
     <div>
       <Gallery/>
+    </div>
+    
+    <div>
+      <h1>Il nostro menu:</h1>
+      <div v-for="tag in menuTags" >
+      <Menu :title="tag" :items="menu.filter(w => w.tags.includes(tag))"/>
+      </div>
+    </div>
+    <div>
+      <Button/>
+    </div> 
+    <div>
+      <Footer/>
     </div>
 
 </template>
@@ -62,7 +79,9 @@
   width: auto;
   position: absolute;
   top: 0;
-  margin-top: 3rem;
+  left:50%;
+  transform: translate(-50%, -50%);
+  margin-top: 6rem;
 }
 
 .arrow{
@@ -71,16 +90,24 @@
   width: auto;
   position: absolute;
   bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
   margin-bottom: 3rem;
+  opacity: 1;
+  transition: all 0.5s ease;
 }
 
+.arrow:hover{
+  opacity: 0.7;
+  margin-bottom: 4rem;
+}
 
 h1{  
   font-family: "Raleway", sans-serif;
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 900;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 h2{  
