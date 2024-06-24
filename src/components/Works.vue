@@ -2,16 +2,21 @@
     import works from '../assets/works.js';
     import List from './List.vue';
     import Gallery from './Gallery.vue'; 
-    import menu from '../assets/menu.js';
+    import menus from '../assets/menu.js';
     import Menu from './Menu.vue';
     import Button from './Button.vue';
     import Footer from './Footer.vue';
+    import randoms from '../assets/randoms.js';
+    
+    
+    
+    
 
     const workTags =  [...new Set(works.map(w => w.tags).flat())]
+    const randomTags =  [...new Set(randoms.map(r => r.tags).flat())]
     console.log(workTags);
 
-    const menuTags =  [...new Set(menu.map(w => w.tags).flat())]
-    console.log(menuTags);
+  
 
 </script>
 
@@ -47,8 +52,8 @@
     
     <div>
       <h1>Il nostro menu:</h1>
-      <div v-for="tag in menuTags" >
-      <Menu :title="tag" :items="menu.filter(w => w.tags.includes(tag))"/>
+      <div v-for="(menu, index) in menus" :key="index" >
+        <Menu :title="menu.name" :items="menu.items"/>
       </div>
     </div>
     <div>
@@ -130,4 +135,4 @@ p{
   font-weight: 400;
 }
 
-</style>
+</style>../assets/randoms.js

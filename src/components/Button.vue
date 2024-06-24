@@ -1,59 +1,48 @@
-<script>
-  import script from '../assets/script.js';
-  import shake from '../assets/shake.js';
+<script setup>
+import Random from './Random.vue';
+import randoms from '../assets/randoms.js';
+import { ref } from 'vue';
 
+// Define reactive properties
+const showMain = ref(false);
+const randomKey = ref(0);
+
+// Handle button click to show the random component
+const handleRandom = () => {
+  console.log('click');
+  randomKey.value += 1; // Increment the key to force re-render
+  showMain.value = true;
+};
 </script>
 
 <template>
-     <div class="container">
-      <div class="row">
-          <div class="col-12 col-md-8">
-            <h2 class="">Sei indeciso e non sai cosa ordinare?</h2>
-            <p class="">
-              Lo sappiamo che scegliere è difficile, infatti ti diamo la possibilità di non farlo.
-              <br>L'unica cosa che devi fare è cliccare sul bottone, e in modo randomico ti verrà proposto un cocktail.
-              <br>Se invece stai leggendo dal cellulare, shakera forte!
-              <br>Cosa aspetti? Lasciati tentare dalla sorte.</p>          
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-8">
+        <h2 class="">Sei indeciso e non sai cosa ordinare?</h2>
+        <p class="">
+          Lo sappiamo che scegliere è difficile, infatti ti diamo la possibilità di non farlo.
+          <br>L'unica cosa che devi fare è cliccare sul bottone, e in modo randomico ti verrà proposto un cocktail.
+          <br>Se invece stai leggendo dal cellulare, shakera forte!
+          <br>Cosa aspetti? Lasciati tentare dalla sorte.
+        </p>
       </div>
-        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-        <button class="custom-btn btn-5"><span>Scelta casuale</span></button>
     </div>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <button @click="handleRandom" class="custom-btn btn-5"><span>Scelta casuale</span></button>
+  </div>
 
-    <div id="main">
+  <div v-if="showMain" id="main">
     <div class="container">
-      <div class="bg row">
-        <div class="col-6"><img id="image"></img></div>
-        <div class="col-6 ps-0 ps-md-4 pt-4 ps-md-0">
-          <h2>Scelgo il cocktail..</h2> 
-          <h2 id="cocktail-name"></h2></div>
-            <button id="btn_reqPermission"
-              style="display: none;padding: 3em 5rem; background-color: blue; color: white; font-weight: bold;">
-              Hey! This will be much better with sensors. Allow?
-            </button>
-       </div>
-     </div>
-   </div>
-    
-
+      <div class="">
+        <Random :key="randomKey" :items="randoms" />
+      </div>
+    </div>
+  </div>
 </template>
 
+
 <style>
-h2{  
-  font-family: "Raleway", sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  
-}
-
-p{
-  font-family: "Raleway", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-}
-
 button {
   margin-top: 1rem;
   margin-bottom: 3rem;
@@ -122,20 +111,13 @@ background: linear-gradient(0deg, rgb(102, 0, 255) 0%, rgb(140, 0, 255) 100%);
   transition:800ms ease all;
 }
 
-html, body {
-      padding: 0;
-      margin: 0;
-  }
-
  #main {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50vh;
 }
 
 .bg {
-  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,20 +126,7 @@ html, body {
 @media screen and (max-width: 767px) {
     .bg {
         display: block;
+        margin-left: 1vw;
     }
-}
-
-#image {
-  width: 100%;
-  padding-bottom: 0rem;
-}
-
-#cocktail-name {
-  font-size: 3vw;
-  font-weight: 400;
-  letter-spacing: 1.4;
-  font-family: 'Unbounded', sans-serif;
-  text-align: center;
-  padding-top: 0.25rem;
 }
 </style>

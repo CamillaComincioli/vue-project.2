@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps } from 'vue';
 
-defineProps({
+const props = defineProps({
   title: String,
   items: {
     type: Array,
@@ -9,21 +9,23 @@ defineProps({
     default: []
   }
 });
-
 </script>
 
 
 <template>
   <div class="container">
-      <div class="row">
-          <div class="col-12 col-md-6" v-for="item in items">
-              <h2>{{ title }}</h2>
-              <div class="d-flex justify-content-between align-items-baseline">
-                <div class="title mt-3 mt-md-1">{{ item.name }}</div>
-                <p class="pr-4">{{ item.text }}</p>
-              </div>
-          </div>
-      </div>
+    <!-- <pre>
+      {{ items }}
+    </pre> -->
+      <h2>{{ title }}</h2>
+    <div v-for="category in (new Set(items.map(item => item.category))) " class="row">
+      <h2 class="title col-12 col-md-6">{{ category }}</h2>
+      <ul class="col-12 col-md-6">
+        <li class="d-flex justify-content-between align-items-baseline" v-for="item in items.filter(item => item.category == category)">
+          <strong>{{ item.name }}</strong> {{ item.price }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
