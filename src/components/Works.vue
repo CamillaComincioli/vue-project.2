@@ -19,12 +19,12 @@
 </script>
 
 <template>
-  <div class="p-mobile">
-    <div class="foreground container-fluid">
+  <div class="foreground container-fluid">
         <img src="https://static.wixstatic.com/media/384146_8c28e95928844b89b9d3a55029502eff~mv2.png/v1/fill/w_134,h_162,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/384146_8c28e95928844b89b9d3a55029502eff~mv2.png" alt="" class="logo">
         <img src="https://img.icons8.com/?size=512&id=HVEtrBP5HF6L&format=png" alt="" class="arrow" @click="scrollToContainer">
-    </div>
+  </div>
 
+  <div class="p-mobile">
     <div class="background"></div>
 
     <div class="container" id="scrollTarget">
