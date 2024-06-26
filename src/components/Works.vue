@@ -6,29 +6,28 @@
     import Menu from './Menu.vue';
     import Button from './Button.vue';
     import Footer from './Footer.vue';
-    import randoms from '../assets/randoms.js';
-    
-    
-    
-    
 
     const workTags =  [...new Set(works.map(w => w.tags).flat())]
-    const randomTags =  [...new Set(randoms.map(r => r.tags).flat())]
     console.log(workTags);
 
-  
-
+    const scrollToContainer = () => {
+    const container = document.getElementById('scrollTarget');
+    if (container) {
+      container.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 </script>
 
 <template>
+  <div class="p-mobile">
     <div class="foreground container-fluid">
         <img src="https://static.wixstatic.com/media/384146_8c28e95928844b89b9d3a55029502eff~mv2.png/v1/fill/w_134,h_162,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/384146_8c28e95928844b89b9d3a55029502eff~mv2.png" alt="" class="logo">
-        <img src="https://img.icons8.com/?size=512&id=HVEtrBP5HF6L&format=png" alt="" class="arrow">
+        <img src="https://img.icons8.com/?size=512&id=HVEtrBP5HF6L&format=png" alt="" class="arrow" @click="scrollToContainer">
     </div>
 
     <div class="background"></div>
 
-    <div class="container">
+    <div class="container" id="scrollTarget">
       <div class="row">
           <div class="col-12 col-md-8">
             <h2 class="">SOTTOSOPRA RAFFA: il locale che non c'era</h2>
@@ -45,20 +44,24 @@
     <div class="tag mt-4" v-for="tag in workTags">
         <List :title="tag" :items="works.filter(w => w.tags.includes(tag))" />
     </div>
-
+  </div>
+    
     <div>
       <Gallery/>
     </div>
     
-    <div>
+    <div class="p-mobile">
+      <div>
       <h1>Il nostro menu:</h1>
-      <div v-for="(menu, index) in menus" :key="index" >
-        <Menu :title="menu.name" :items="menu.items"/>
+        <div v-for="(menu, index) in menus" :key="index" >
+          <Menu :title="menu.name" :items="menu.items"/>
+        </div>
       </div>
+      <div>
+        <Button/>
+      </div> 
     </div>
-    <div>
-      <Button/>
-    </div> 
+   
     <div>
       <Footer/>
     </div>
@@ -67,6 +70,18 @@
 
 
 <style>
+.p-mobile{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .p-mobile {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .background{
   position: relative;
 }
@@ -135,4 +150,4 @@ p{
   font-weight: 400;
 }
 
-</style>../assets/randoms.js
+</style>

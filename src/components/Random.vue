@@ -25,18 +25,19 @@ console.log("cocktail: ", randomCocktail.value);
 </script>
 
 <template>
-  <div class="container">
+ <div class="container">
     <div class="row box">
-        <div class="col-12 col-md-6">
-            <img :src="randomCocktail.image" class="img-fluid" alt="">
+      <div class="col-12 col-md-6 d-flex align-items-stretch">
+        <div class="image-container">
+          <img :src="randomCocktail.image" class="img-fluid custom-img" alt="">
         </div>
-        <div class="col-12 col-md-6 text-group">
-            <div class="title">{{ randomCocktail.name }}</div>
-            <p>{{ randomCocktail.text }}</p>
-        </div>
-        
+      </div>
+      <div class="col-12 col-md-6 text-group">
+        <div class="title">{{ randomCocktail.name }}</div>
+        <p>{{ randomCocktail.text }}</p>
       </div>
     </div>
+  </div>
 </template>
 
 <style>
@@ -50,8 +51,25 @@ console.log("cocktail: ", randomCocktail.value);
     }
 }
 
+.image-container {
+    width: 100%;
+    padding-top: 100%; /* Questo crea un contenitore quadrato */
+    position: relative;
+  }
+
+  .custom-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* L'immagine coprirà completamente il contenitore quadrato */
+  }
+
 .text-group{
-    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media screen and (max-width: 767px) {
@@ -59,4 +77,5 @@ console.log("cocktail: ", randomCocktail.value);
         margin-top: 1rem;
     }
 }
+
 </style>
