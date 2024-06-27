@@ -10,7 +10,7 @@ const randomKey = ref(0);
 // Handle button click to show the random component
 const handleRandom = () => {
   console.log('click');
-  randomKey.value += 1; // Increment the key to force re-render
+  randomKey.value = 1; // Increment the key to force re-render
   showMain.value = true;
 };
 </script>
